@@ -37,7 +37,8 @@ router.post('/', auth, upload.single('pdf'), (req, res) => {
       return res.status(400).json({ message: 'No file uploaded' });
     }
 
-    console.log('File uploaded successfully:', req.file.filename);
+    // Log file size and original name for debugging
+    console.log('File uploaded successfully:', req.file.filename, 'Size:', req.file.size, 'Original name:', req.file.originalname);
     
     // Respond with the file path or name
     res.json({ 
